@@ -8,5 +8,5 @@ spec:
   lifecycle: production
   owner: rplatel@tucowsinc.com
   definition:
-    $text: https://github.com/richardplatel-tc/aminal_generatorx/blob/master/openapi.json
+    $text: https://raw.githubusercontent.com/richardplatel-tc/aminal_generatorx/master/openapi.json
 
