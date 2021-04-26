@@ -3,6 +3,7 @@ kind: API
 metadata:
   name: aminal
   description: Animal Generator
+  tags: python-fastAPI
 spec:
   type: openapi
   lifecycle: production
