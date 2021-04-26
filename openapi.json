@@ -1,0 +1,140 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "FastAPI",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/generate/{animal}": {
+      "get": {
+        "summary": "Generate Thing",
+        "operationId": "generate_thing_generate__animal__get",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Animal"
+            },
+            "name": "animal",
+            "in": "path"
+          },
+          {
+            "required": false,
+            "schema": {
+              "title": "Adjectives",
+              "maximum": 3.0,
+              "minimum": 0.0,
+              "type": "integer",
+              "default": 1
+            },
+            "name": "adjectives",
+            "in": "query"
+          },
+          {
+            "required": false,
+            "schema": {
+              "title": "Count",
+              "maximum": 5.0,
+              "minimum": 1.0,
+              "type": "integer",
+              "default": 1
+            },
+            "name": "count",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response Generate Thing Generate  Animal  Get",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Animal": {
+        "title": "Animal",
+        "enum": [
+          "bird",
+          "cat",
+          "fish"
+        ],
+        "type": "string",
+        "description": "An enumeration."
+      },
+      "HTTPValidationError": {
+        "title": "HTTPValidationError",
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          }
+        }
+      },
+      "ValidationError": {
+        "title": "ValidationError",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "loc": {
+            "title": "Location",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "APIKeyHeader": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Api-Key"
+      }
+    }
+  }
+}
