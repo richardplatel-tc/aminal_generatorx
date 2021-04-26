@@ -5,7 +5,7 @@ metadata:
   description: Animal Generator
   tags: 
     - python
-    - fastAPI
+    - fastapi
 spec:
   type: openapi
   lifecycle: production
