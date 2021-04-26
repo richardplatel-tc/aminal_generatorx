@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: aminal
+  description: Animal Generator
+spec:
+  type: openapi
+  lifecycle: production
+  owner: rplatel@tucowsinc.com
+  definition:
+    $text: https://raw.githubusercontent.com/richardplatel-tc/aminal_generatorx/master/openapi.json
